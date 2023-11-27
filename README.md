@@ -1,2 +1,2 @@
 # tabere_app
-O aplicație web care gestionează defășurararea taberleor
+O aplicație web care gestionează desfășurarea taberelor.
