@@ -63,7 +63,7 @@
 <body>
     <div class="forum-box">
         <div class="message">
-            <strong>eu:</strong> Salutare! sdfaȘtiați că dinozaurii nu au dispărut de fapt, ci s-au transformat în păsări și trăiesc printre noi?
+            <strong>eu:</strong> Salutare de fapt ce zic? sdfaȘtiați că dinozaurii nu au dispărut de fapt, ci s-au transformat în păsări și trăiesc printre noi?
         </div>
         <div class="message">
             <strong>o pasare:</strong> Asta explică de ce păsările stau mereu pe firele electrice! Se încarcă!
