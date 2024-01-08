@@ -1,90 +1,80 @@
-/* style.css */
 body {
     font-family: 'Courier New', Courier, monospace;
-    background: url('floral-background.jpg'); /* Înlocuiește cu calea imaginii tale florale */
-    background-size: cover;
-    color: #333;
-    margin: 0;
+    margin: 50;
     padding: 0;
     box-sizing: border-box;
+    color: #111;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column; /* organizează conținutul în coloană */
+    align-items: center; /* centrează conținutul orizontal */
+    min-height: 10vh;
+    overflow: auto; /* permite scroll dacă conținutul depășește înălțimea */
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.8);
+body::before {
+    content: '';
+    position: fixed; /* poziționare fixă pentru a rămâne în fundal */
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: url('../images/forest6.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    z-index: -1;
+}
+
+.cover-container {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 90%;
+    max-width: 800px;
     padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    margin-top: 20px; /* adaugă un spațiu de sus */
 }
 
-header {
+.header, .main {
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.tabere-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.tabere-list li {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.button {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
+.nav-link, .btn {
+    color: #111;
     text-decoration: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 0.9em;
-    margin: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.button:hover {
-    background-color: #45a049;
-}
-
-.form-container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.nav-link:hover, .nav-link.active, .btn:hover {
+    background-color: rgba(203, 212, 106, 0.442);
 }
 
 .btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #4CAF50;
+    background-color: #a7af4c;
     color: white;
-    cursor: pointer;
-    border-radius: 4px;
+    border: 1px solid #4c4f49;
 }
 
-.btn:hover {
-    background-color: #45a049;
+.footer {
+    padding: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .cover-container {
+        width: 95%;
+    }
+
+    body {
+        font-size: 1em;
+    }
+}
+
+.main {
+    /* Restul stilurilor tale */
+    overflow-y: auto; /* Permite derularea verticală */
+    max-height: calc(100vh - 100px); /* Ajustează înălțimea maximă dacă este necesar */
 }

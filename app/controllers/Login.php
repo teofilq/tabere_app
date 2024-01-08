@@ -26,7 +26,16 @@ class Login
 					session_regenerate_id(true);
 					// Parola este corectă
 					$_SESSION['USER'] = $row;
-					redirect('home');
+					switch ($_SESSION['USER']->role) {
+						case 'admin':
+							redirect('admin/dashboard');
+							break;
+						case 'limited':
+							redirect('user');
+							break;
+						// Alte cazuri
+					}
+					
 				}
 				else
 				{

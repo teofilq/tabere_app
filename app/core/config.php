@@ -17,7 +17,7 @@ define('DBDRIVER', '');
 if($_SERVER['SERVER_NAME'] == 'localhost') {
     define('ROOT', 'http://localhost/tabere_app/public');
 } else {
-    define('ROOT', 'https://www.tabere.go.ro');
+    define('ROOT', 'https://192.168.1.165/tabere_app/public');
 }
 
 define('APP_NAME', "tabere_app");

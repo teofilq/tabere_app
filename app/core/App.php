@@ -12,6 +12,46 @@ class App
 		return $URL;	
 	}
 
+	private function checkAccess() {
+
+        $userRole = $_SESSION['USER']->role ?? 'guest';
+		show($userRole);
+        $permissions = [
+			'admin' => [
+				'Dashboard' => ['index', 'edit', 'delete', 'create'],
+				'User' => ['index', 'edit', 'delete', 'create'],
+				'Report' => ['index', 'edit', 'delete', 'create'],
+				'Home' => ['index'],
+				'About' => ['index'],
+				'Logout' => ['index']
+			],
+			'volunteer' => [
+				'Dashboard' => ['index'],
+				'Event' => ['index', 'view'],
+				'Report' => ['index', 'create'],
+				'Home' => ['index'],
+				'About' => ['index'],
+				'Logout' => ['index']
+			],
+			'limited' => [
+				'Dashboard' => ['index'],
+				'Event' => ['index'],
+				'Home' => ['index'],
+				'Logout' => ['index']
+			],
+			'guest' => [
+				'Home' => ['index'],
+				'About' => ['index']
+			]
+		];
+		
+
+        if (!isset($permissions[$userRole][$this->controller]) || !in_array($this->method, $permissions[$userRole][$this->controller])) {
+            $this->controller = '_404';
+            $this->method = 'index';
+        }
+    }
+
 	public function loadController()
 	{
 		$URL = $this->splitURL();
@@ -41,14 +81,9 @@ class App
 				unset($URL[1]);
 			}	
 		}
-
+		$this->checkAccess();
 		call_user_func_array([$controller,$this->method], $URL);
 
 	}	
 
 }
-
-
-
-
-

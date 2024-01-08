@@ -8,7 +8,9 @@ class Camp
     use Model;
 
     protected $table = 'camps'; // Numele tabelului tău pentru tabere
-
+    public function __construct() {
+        $this->order_column = 'camp_id';  
+    }
     // Colonele permise din tabelul camps pentru a preveni asignarea masiva
     protected $allowedColumns = [
         'user_id',

@@ -66,7 +66,7 @@ Trait Model
 		if($result)
 			return $result[0];
 
-		return false;
+		return true;
 	}
 
 	public function insert($data)
@@ -89,7 +89,7 @@ Trait Model
 		$query = "insert into $this->table (".implode(",", $keys).") values (:".implode(",:", $keys).")";
 		$this->query($query, $data);
 
-		return false;
+		return true;
 	}
 
 	public function update($id, $data, $id_column = 'id')
@@ -121,7 +121,7 @@ Trait Model
 		$data[$id_column] = $id;
 
 		$this->query($query, $data);
-		return false;
+		return true;
 
 	}
 
@@ -132,7 +132,7 @@ Trait Model
 		$query = "delete from $this->table where $id_column = :$id_column ";
 		$this->query($query, $data);
 
-		return false;
+		return true;
 
 	}
 
