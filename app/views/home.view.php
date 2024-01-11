@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tabere_app</title>
     <link href="<?=ROOT?>/css/style.css" rel="stylesheet">
+    <script src="<?=ROOT?>/js/auth-check.js"></script>
+    
 </head>
 <body>
 
@@ -22,10 +24,10 @@
         <h2>Hubul organizatorilor și al voluntarilor</h2>
         <p class="lead">Hei, aventurierule! Bun venit în lumea Tabere_App, locul unde organizarea taberelor devine o distracție! Aici, totul e despre crearea de amintiri de neuitat, fără stresul planificării. Gata cu hârtiile și haosul - de acum încolo, ești doar câteva click-uri distanță de aventura perfectă. Fie că ești un spirit liber căutând să exploreze natura sau un lider născut gata să-și ghideze echipa, noi suntem aici să te ajutăm să transformi fiecare tabără într-o poveste epică. Haide, alătură-te tribului nostru și să înceapă aventura!</p>
         <p>
-            <a href="#" class="btn">Learn more</a>
+            <a href="<?=ROOT?>/home/learnmore" class="btn">Află mai multe</a>
         </p>
     </main>
-
+</div>
     <footer class="footer"></footer>
 </body>
 </html>

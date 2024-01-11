@@ -13,41 +13,48 @@ class App
 	}
 
 	private function checkAccess() {
-
-        $userRole = $_SESSION['USER']->role ?? 'guest';
-		show($userRole);
+		$userRole= $_SESSION['USER']->role ?? 'guest';
         $permissions = [
 			'admin' => [
-				'Dashboard' => ['index', 'edit', 'delete', 'create'],
+				'Dashboard' => ['index', 'edit', 'delete', 'create','store'],
 				'User' => ['index', 'edit', 'delete', 'create'],
 				'Report' => ['index', 'edit', 'delete', 'create'],
 				'Home' => ['index'],
 				'About' => ['index'],
-				'Logout' => ['index']
+				'Logout' => ['index'],
+				'_404' => ['index']
 			],
 			'volunteer' => [
-				'Dashboard' => ['index'],
+				//'Dashboard' => ['index'],
 				'Event' => ['index', 'view'],
 				'Report' => ['index', 'create'],
 				'Home' => ['index'],
 				'About' => ['index'],
-				'Logout' => ['index']
+				'Logout' => ['index'],
+				'_404' => ['index']
 			],
 			'limited' => [
-				'Dashboard' => ['index'],
+				//'Dashboard' => ['index'],
 				'Event' => ['index'],
 				'Home' => ['index'],
-				'Logout' => ['index']
+				'Logout' => ['index'],
+				'User' => ['index','show'],
+				'_404' => ['index']
 			],
 			'guest' => [
 				'Home' => ['index'],
-				'About' => ['index']
+				'About' => ['index'],
+				'Login' => ['index'],
+				'Signup' => ['index'],
+				'_404' => ['index']
 			]
 		];
 		
 
         if (!isset($permissions[$userRole][$this->controller]) || !in_array($this->method, $permissions[$userRole][$this->controller])) {
-            $this->controller = '_404';
+			$filename = "../app/controllers/_403.php";
+			require $filename;
+			$this->controller = '_403';
             $this->method = 'index';
         }
     }
@@ -55,7 +62,6 @@ class App
 	public function loadController()
 	{
 		$URL = $this->splitURL();
-
 		/** select controller **/
 		$filename = "../app/controllers/".ucfirst($URL[0]).".php";
 		if(file_exists($filename))
@@ -64,11 +70,11 @@ class App
 			$this->controller = ucfirst($URL[0]);
 			unset($URL[0]);
 		}else{
-
 			$filename = "../app/controllers/_404.php";
 			require $filename;
 			$this->controller = "_404";
 		}
+		$this->checkAccess();
 
 		$controller = new $this->controller;
 
@@ -81,7 +87,7 @@ class App
 				unset($URL[1]);
 			}	
 		}
-		$this->checkAccess();
+
 		call_user_func_array([$controller,$this->method], $URL);
 
 	}	

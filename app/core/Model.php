@@ -66,7 +66,7 @@ Trait Model
 		if($result)
 			return $result[0];
 
-		return true;
+		return false;
 	}
 
 	public function insert($data)

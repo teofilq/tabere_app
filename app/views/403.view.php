@@ -14,8 +14,8 @@
     </header>
 
     <main class="text-center">
-        <h1>404 - Pagina nu exista</h1>
-        <p class="lead">Oops! Se pare că pagina încă nu exista.</p>
+        <h1>403 - Acces Interzis</h1>
+        <p class="lead">Oops! Se pare că nu ai permisiunea de a accesa această pagină. Dacă crezi că este o eroare, te rog să contactezi administratorul site-ului.</p>
         <p>
             <a href="<?=ROOT?>/home" class="btn">Înapoi la Pagina Principală</a>
         </p>

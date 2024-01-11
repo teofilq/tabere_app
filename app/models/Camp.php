@@ -7,11 +7,11 @@ class Camp
 {
     use Model;
 
-    protected $table = 'camps'; // Numele tabelului tău pentru tabere
+    protected $table = 'camps'; // Numele tabelului  pentru tabere
     public function __construct() {
         $this->order_column = 'camp_id';  
     }
-    // Colonele permise din tabelul camps pentru a preveni asignarea masiva
+    // Colonele permise din tabelul camps 
     protected $allowedColumns = [
         'user_id',
         'camp_name',

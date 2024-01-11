@@ -25,7 +25,7 @@ tabere_app/
 │   │   ├── Login.php
 │   │   ├── Logout.php
 │   │   ├── Signup.php
-│   │   └── Admin.php  // -->de implementat
+│   │   └── Admin.php 
 │   │
 │   ├── core/
 │   │   ├── App.php

@@ -25,6 +25,7 @@ CREATE TABLE volunteer_profiles (
     education VARCHAR(255),
     medical_issues TEXT,
     languages_spoken VARCHAR(255),
+    request_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 

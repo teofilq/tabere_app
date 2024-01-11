@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Account · Your Site</title>
+    <title>Create Account · tabere_app</title>
     <link href="<?=ROOT?>/css/style.css" rel="stylesheet">
     <link href="<?=ROOT?>/assets/css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-    
-<main class="form-signin">
+<div class="cover-container">
+<main>
     <form method="post">
         <?php if(!empty($errors)):?>
             <div class="alert alert-danger">
@@ -18,7 +18,6 @@
         <?php endif;?>
 
         <h1 class="h3 mb-3 fw-normal">Create account</h1>
-
         <div class="form-floating">
             <input name="first_name" type="text" class="form-control" id="floatingFirstName" placeholder="First Name" required>
             <label for="floatingFirstName">First Name</label>
@@ -30,6 +29,14 @@
         <div class="form-floating">
             <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
             <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+            <input name="phone" type="tel" class="form-control" id="floatingPhone" placeholder="Phone Number" required>
+            <label for="floatingPhone">Phone Number</label>
+        </div>
+        <div class="form-floating">
+            <input name="birth_date" type="date" class="form-control" id="floatingBirthDate" placeholder="Birth Date" required>
+            <label for="floatingBirthDate">Birth Date</label>
         </div>
         <div class="form-floating">
             <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
@@ -45,6 +52,7 @@
         <a href="<?=ROOT?>/login">Login</a>
     </form>
 </main>
+</div>
 
 </body>
 </html>

@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signin · Your Site</title>
+    <title>Signin · tabere_app</title>
     <link href="<?=ROOT?>/css/style.css" rel="stylesheet">
     <link href="<?=ROOT?>/assets/css/signin.css" rel="stylesheet">
+    <script src="<?=ROOT?>/js/auth-check.js"></script>
 </head>
 <body class="text-center"->
-    
-<main class="form-signin">
+<div class="cover-container">
+<main>
     <form method="post">
         <?php if(!empty($errors)):?>
             <div class="alert alert-danger">
                 <?= implode("<br>", $errors)?>
             </div>
         <?php endif;?>
-      
-        <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">
@@ -39,6 +39,6 @@
         <a href="<?=ROOT?>/signup">Signup</a>
     </form>
 </main>
-
+</div>
 </body>
 </html>
