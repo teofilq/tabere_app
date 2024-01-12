@@ -18,5 +18,5 @@ define('APP_NAME', "tabere_app");
 define('APP_DESC', "O aplicație pentru organizarea taberelor");
 define('DEBUG', $_ENV['APP_DEBUG']); // true - afișează erorile, false - le ascunde
 //haha
-
+//hihih
 
