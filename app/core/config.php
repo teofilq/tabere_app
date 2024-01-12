@@ -17,19 +17,12 @@ define('DBDRIVER', '');
 if($_SERVER['SERVER_NAME'] == 'localhost') {
     define('ROOT', 'http://localhost/tabere_app/public');
 } else {
-    define('ROOT', 'https://192.168.1.165/tabere_app/public');
+    define('ROOT', 'https://tabere.go.ro');
 }
 
 define('APP_NAME', "tabere_app");
 define('APP_DESC', "O aplicație pentru organizarea taberelor");
-define('DEBUG', true); // true - afișează erorile, false - le ascunde
+define('DEBUG', $_ENV['APP_DEBUG']); // true - afișează erorile, false - le ascunde
+//haha
 
-
-// fara .env
-// 	/** database config **/
-// 	define('DBNAME', 'my_db');
-// 	define('DBHOST', 'localhost');
-// 	define('DBUSER', 'root');
-// 	define('DBPASS', '');
-// 	define('DBDRIVER', '');
 
