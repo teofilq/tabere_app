@@ -13,13 +13,7 @@ define('DBUSER', $_ENV['DB_USERNAME']);
 define('DBPASS', $_ENV['DB_PASSWORD']);
 define('DBDRIVER', ''); 
 
-// Setează ROOT 
-if($_SERVER['SERVER_NAME'] == 'localhost') {
-    define('ROOT', 'http://localhost/tabere_app/public');
-} else {
-    define('ROOT', 'https://tabere.go.ro');
-}
-
+define('ROOT', $ENV['SERVER_NAME']);
 define('APP_NAME', "tabere_app");
 define('APP_DESC', "O aplicație pentru organizarea taberelor");
 define('DEBUG', $_ENV['APP_DEBUG']); // true - afișează erorile, false - le ascunde
