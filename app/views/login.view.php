@@ -11,6 +11,7 @@
 <body class="text-center"->
 <div class="cover-container">
 <main>
+    
     <form method="post">
         <?php if(!empty($errors)):?>
             <div class="alert alert-danger">

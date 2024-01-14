@@ -34,6 +34,7 @@
                     <p>Descriere: <?= htmlspecialchars($camp->description); ?></p>
                     <div class="actions">
                         <a href="<?=ROOT?>/dashboard/edit/<?= $camp->camp_id; ?>" class="btn">Edit</a>
+                        
                         <a href="<?=ROOT?>/dashboard/delete/<?= $camp->camp_id; ?>" class="btn" onclick="return confirm('Ești sigur că vrei să ștergi această tabără?');"> Delete </a>
                     </div>
                 </div>
