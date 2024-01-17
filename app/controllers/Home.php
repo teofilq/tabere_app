@@ -10,6 +10,7 @@ class Home
 	public function test(){
 		$this->view('test');
 	}
+    
 	public function index()
 	{
 
@@ -31,7 +32,7 @@ class Home
 							$this->view('home');
 							break;
 					}
-		
+					
 	}
 	public function learnmore()
 	{

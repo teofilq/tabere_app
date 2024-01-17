@@ -81,4 +81,51 @@ class Dashboard {
             redirect('dashboard');
         }
     }
+    public function downloadcv($id) {
+        $user = $this->userModel->first(['user_id' => $id]);
+        $profile = $this->volunteerModel->first(['user_id' => $id]);
+    
+        if ($user && $profile) {
+
+            $pdf = new TCPDF();
+            $pdf->SetCreator('tabere_app');
+            $pdf->SetTitle('CV - ' . $user->first_name . ' ' . $user->last_name);
+            $pdf->SetHeaderData('', 0, 'CV', $user->first_name . ' ' . $user->last_name);
+            $pdf->setHeaderFont(['DejaVuSans', '', 10]);
+            $pdf->setFooterFont(['DejaVuSans', '', 8]);
+            $pdf->SetFont('dejavusans', '', 12);
+            $pdf->AddPage();
+            
+            function checkEmpty($value) {
+                return empty($value) ? 'Nu există informații' : $value;
+            }
+            
+            $pdf->SetFont('dejavusans', 'B', 12); 
+            $pdf->Cell(0, 10, "Nume: " . checkEmpty($user->first_name . ' ' . $user->last_name), 0, 1);
+            $pdf->Cell(0, 10, "Email: " . checkEmpty($user->email), 0, 1);
+            $pdf->Cell(0, 10, "Telefon: " . checkEmpty($user->phone), 0, 1);
+            $pdf->Cell(0, 10, "Adresă: " . checkEmpty($user->address), 0, 1);
+            $pdf->Cell(0, 10, "Data nașterii: " . checkEmpty($user->birth_date), 0, 1);
+            $pdf->Cell(0, 10, "Informații suplimentare: " . checkEmpty($user->additional_info), 0, 1);
+            
+            $pdf->SetFont('dejavusans', '', 12); 
+            $pdf->Cell(0, 10, '', 0, 1, 'C');
+            $pdf->SetFont('dejavusans', 'B', 12);
+            $pdf->Cell(0, 10, 'Informații Profil Voluntar', 0, 1, 'C');
+            
+            $pdf->SetFont('dejavusans', '', 12); 
+            $pdf->Cell(0, 10, "Experiență: " . checkEmpty($profile->experience), 0, 1);
+            $pdf->Cell(0, 10, "Educație: " . checkEmpty($profile->education), 0, 1);
+            $pdf->Cell(0, 10, "Motivație: " . checkEmpty($profile->motivation), 0, 1);
+            $pdf->Cell(0, 10, "Probleme medicale: " . checkEmpty($profile->medical_issues), 0, 1);
+            $pdf->Cell(0, 10, "Limbi vorbite: " . checkEmpty($profile->languages_spoken), 0, 1);
+            
+            $pdf->Output("CV_{$user->first_name}_{$user->last_name}.pdf", 'D');
+        } else {
+            redirect('dashboard/verifyvolunteer');
+        }
+    }
+    
+    
+    
 }

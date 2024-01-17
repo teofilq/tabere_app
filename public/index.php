@@ -1,4 +1,5 @@
 <?php 
+
 $token = bin2hex(random_bytes(32));  // Generează un token sigur
 setcookie('my_app_token', $token, [
     //'expires' => time() + 86400,  // Expiră în timp curent + 86400 secunde (1 zi)

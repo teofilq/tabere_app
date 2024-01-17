@@ -1,58 +1,57 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Account · tabere_app</title>
-    <link href="<?=ROOT?>/css/style.css" rel="stylesheet">
-    <link href="<?=ROOT?>/assets/css/signin.css" rel="stylesheet">
-</head>
-<body class="text-center">
-<div class="cover-container">
-<main>
-    <form method="post">
-        <?php if(!empty($errors)):?>
+<?php
+$page_title = 'tabere_app - Signin'; 
+include(ROOT.'../app/views/partials/header.php'); 
+include(ROOT.'../app/views/partials/navbar.php'); 
+?>
+
+<link href="<?=ROOT?>/css/sign-in.css" rel="stylesheet">
+
+<main class="form-signin w-100 m-auto">
+  <form method="post">
+  <?php if(!empty($errors)):?>
             <div class="alert alert-danger">
                 <?= implode("<br>", $errors)?>
             </div>
         <?php endif;?>
-
-        <h1 class="h3 mb-3 fw-normal">Create account</h1>
-        <div class="form-floating">
+    <!-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+    <div class="form-floating">
             <input name="first_name" type="text" class="form-control" id="floatingFirstName" placeholder="First Name" required>
             <label for="floatingFirstName">First Name</label>
         </div>
-        <div class="form-floating">
+    <div class="form-floating">
             <input name="last_name" type="text" class="form-control" id="floatingLastName" placeholder="Last Name" required>
             <label for="floatingLastName">Last Name</label>
         </div>
-        <div class="form-floating">
-            <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-            <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-            <input name="phone" type="tel" class="form-control" id="floatingPhone" placeholder="Phone Number" required>
-            <label for="floatingPhone">Phone Number</label>
-        </div>
-        <div class="form-floating">
+    
+    <div class="form-floating">
+      <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
             <input name="birth_date" type="date" class="form-control" id="floatingBirthDate" placeholder="Birth Date" required>
             <label for="floatingBirthDate">Birth Date</label>
         </div>
-        <div class="form-floating">
-            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
-            <label for="floatingPassword">Password</label>
+    <div class="form-floating">
+            <input name="phone" type="tel" class="form-control" id="floatingPhone" placeholder="Phone Number" required>
+            <label for="floatingPhone">Phone Number</label>
         </div>
-        <div class="checkbox mb-3">
-            <label>
-                <input name="terms" type="checkbox" value="1" required> Accept terms
-            </label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Create</button>
-        <a href="<?=ROOT?>">Home</a>
-        <a href="<?=ROOT?>/login">Login</a>
-    </form>
-</main>
-</div>
+    <div class="form-floating">
+      <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
 
-</body>
-</html>
+    <div class="form-check text-start my-3">
+      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Remember me
+      </label>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+
+  </form>
+</main>
+
+
+
+<?php include(ROOT.'../app/views/partials/footer.php'); ?>

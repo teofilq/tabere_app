@@ -16,7 +16,10 @@ class Signup
 			$user = new User;
 			if($user->validate($_POST))
 			{
-				$user->insert($_POST);
+				$token = bin2hex(random_bytes(16));
+				$_POST['token'] = $token; 
+				$user->insert($_POST);				
+				
 				redirect('login');
 			}
 

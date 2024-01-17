@@ -1,52 +1,97 @@
-<!doctype html>
-<html lang="en" class="h-100">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard Admin - Tabere_App</title>
-    <link href="<?=ROOT?>/css/style.css" rel="stylesheet">
-    <script src="<?=ROOT?>/js/auth-check.js"></script>
-</head>
-<body>
-<div class="cover-container">
-    <header class="header">
-        <h1>Dashboard Admin - Tabere</h1>
-        <nav class="nav-masthead">
-            <a class="nav-link active" aria-current="page" href="<?=ROOT?>/dashboard/">Tabere</a>
-            <a class="nav-link" href="<?=ROOT?>/dashboard/verifyvolunteer">Cereri voluntari</a>
-            <a class="nav-link" href="<?=ROOT?>/logout">Logout</a>
-        </nav>
-    </header>
+<?php
+$page_title = 'tabere_app - Dashboard'; 
+include(ROOT.'../app/views/partials/header.php'); 
+?>
 
-    <main class="main">
-        <section class="admin-intro">
-        <h2>Spor la treabă, <?=$username?>!</h2>
-            <p>Gestionează taberele și activitățile dintr-un singur loc.</p>
-        </section>
-        <section class="camp-list">
-            <h3>Taberele Mele</h3>
-            <?php foreach ($camps as $camp): ?>
-                <div class="camp-card">
-                    <h4><?= htmlspecialchars($camp->camp_name); ?></h4>
-                    <p>Locație: <?= htmlspecialchars($camp->location); ?></p>
-                    <p>Data Început: <?= htmlspecialchars($camp->start_date); ?></p>
-                    <p>Data Finalizare: <?= htmlspecialchars($camp->end_date); ?></p>
-                    <p>Descriere: <?= htmlspecialchars($camp->description); ?></p>
-                    <div class="actions">
-                        <a href="<?=ROOT?>/dashboard/edit/<?= $camp->camp_id; ?>" class="btn">Edit</a>
-                        
-                        <a href="<?=ROOT?>/dashboard/delete/<?= $camp->camp_id; ?>" class="btn" onclick="return confirm('Ești sigur că vrei să ștergi această tabără?');"> Delete </a>
-                    </div>
+<header data-bs-theme="dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="<?=ROOT?>/home">tabere_app</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="<?=ROOT?>/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href=href="<?=ROOT?>/dashboard" >Tabere</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?=ROOT?>/dashboard/verifyvolunteer">Cereri Voluntari</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Cereri Tabere</a>
+          </li>
+        </ul>
+          <div class="text-end">
+
+        
+        <button type="button" class="btn btn-secondary" onclick="location.href='<?=ROOT?>/logout'">Logout</button>
+
+      </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+<main>
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Taberele mele</h1>
+      <p class="lead text-body-secondary">Aici poți adăuga și edita taberele tale. Spor la treabă, <?=$username?>!</p>
+      <p>
+        <a href="<?=ROOT?>/Dashboard/store" class="btn btn-primary my-2">Adaugă o tabără</a>
+        <!-- <a href="#" class="btn btn-secondary my-2">Adaugă un anunț</a> -->
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-3">
+      <?php if (empty($camps)): ?>
+        <div class="col">
+          <p>Încă nu ai tabere. Crează una!</p>
+        </div>
+      <?php else: ?>
+        <?php foreach ($camps as $camp): ?>
+          <div class="col">
+            <div class="card shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title><?= htmlspecialchars($camp->camp_name); ?></title>
+                <rect width="100%" height="100%" fill="#55595c"/>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em"><?= htmlspecialchars($camp->camp_name); ?></text>
+              </svg>
+              <div class="card-body">
+                <h4 class="card-title"><?= htmlspecialchars($camp->camp_name); ?></h4>
+                <p class="card-text">Locație: <?= htmlspecialchars($camp->location); ?></p>
+                <p class="card-text">Data Început: <?= htmlspecialchars($camp->start_date); ?></p>
+                <p class="card-text">Data Finalizare: <?= htmlspecialchars($camp->end_date); ?></p>
+                <p class="card-text">Descriere: <?= htmlspecialchars($camp->description); ?></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div  class="btn-group"> 
+                    <a href="<?=ROOT?>/dashboard/edit/<?= $camp->camp_id; ?>" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a href="<?=ROOT?>/dashboard/delete/<?= $camp->camp_id; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Ești sigur că vrei să ștergi această tabără?');">Delete</a>
+                  </div>
+                  <small class="text-body-secondary"><?= $camp->created_date ?></small>
                 </div>
-            <?php endforeach; ?>
-            <a href="<?=ROOT?>/Dashboard/store" class="btn">Adaugă o nouă tabără</a>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <!-- ... (conținutul footer-ului, poți adăuga un mesaj pentru admini) ... -->
-        <p>© 2024 Tabere_App. Toate drepturile rezervate pentru admini.</p>
-    </footer>
+              </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  </div>
 </div>
-</body>
-</html>
+
+
+</main>
+
+
+<?php include(ROOT.'../app/views/partials/footer.php'); ?>

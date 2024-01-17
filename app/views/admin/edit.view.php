@@ -1,51 +1,71 @@
-<!doctype html>
-<html lang="en" class="h-100">
-<head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>tabere_app</title>
-    <script src="<?=ROOT?>/js/auth-check.js"></script>
-    <link href="<?=ROOT?>/css/style.css" rel="stylesheet">
-</head>
-<body>
-<div class="cover-container">
-    <header class="header">
-        <h1>Editare Tabără</h1>
-    </header>
+<?php
+$page_title = 'tabere_app - Editare Tabără'; 
+include(ROOT.'../app/views/partials/header.php'); 
+?>
 
-    <main class="main">
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <h2>Editeaza tabara: <?= htmlspecialchars($camp->camp_name) ?></h2>
+      <p class="lead">Adu tabăra la zi.</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-7 col-lg-8">
         <?php if ($camp): ?>
-        <form action="<?=ROOT?>/dashboard/update/<?= $camp->camp_id; ?>" method="post" class="camp-form">
-            <div class="form-group">
-                <label for="camp_name">Nume Tabără:</label>
-                <input type="text" id="camp_name" name="camp_name" value="<?= htmlspecialchars($camp->camp_name) ?>">
+        <form action="<?=ROOT?>/dashboard/update/<?= $camp->camp_id; ?>" method="post" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="camp_name" class="form-label">Nume Tabără</label>
+              <input type="text" class="form-control" id="camp_name" name="camp_name" value="<?= htmlspecialchars($camp->camp_name) ?>" required>
+              <div class="invalid-feedback">
+                Numele taberei este necesar.
+              </div>
             </div>
-            <div class="form-group">
-                <label for="location">Locație:</label>
-                <input type="text" id="location" name="location" value="<?= htmlspecialchars($camp->location) ?>">
+
+            <div class="col-12">
+              <label for="location" class="form-label">Locație</label>
+              <input type="text" class="form-control" id="location" name="location" value="<?= htmlspecialchars($camp->location) ?>" required>
+              <div class="invalid-feedback">
+                Locația este necesară.
+              </div>
             </div>
-            <div class="form-group">
-                <label for="start_date">Data Început:</label>
-                <input type="date" id="start_date" name="start_date" value="<?= $camp->start_date ?>">
+
+            <div class="col-12">
+              <label for="start_date" class="form-label">Data Început</label>
+              <input type="date" class="form-control" id="start_date" name="start_date" value="<?= $camp->start_date ?>" required>
+              <div class="invalid-feedback">
+                Data de început este necesară.
+              </div>
             </div>
-            <div class="form-group">
-                <label for="start_date">Data Finalizare:</label>
-                <input type="date" id="end_date" name="end_date" value="<?= $camp->end_date ?>">
+
+            <div class="col-12">
+              <label for="end_date" class="form-label">Data Finalizare</label>
+              <input type="date" class="form-control" id="end_date" name="end_date" value="<?= $camp->end_date ?>" required>
+              <div class="invalid-feedback">
+                Data de finalizare este necesară.
+              </div>
             </div>
-            <div class="form-group">
-                <label for="description">Descriere:</label>
-                <textarea id="description" name="description" rows="4"><?= htmlspecialchars($camp->description) ?></textarea>
+
+            <div class="col-12">
+              <label for="description" class="form-label">Descriere</label>
+              <textarea class="form-control" id="description" name="description" rows="4" required><?= htmlspecialchars($camp->description) ?></textarea>
+              <div class="invalid-feedback">
+                Descrierea este necesară.
+              </div>
             </div>
-            <input type="submit" value="Actualizează Tabăra" class="btn">
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Actualizează Tabăra</button>
         </form>
         <?php else: ?>
-        <p>Tabăra specificată nu a fost găsită.</p>
+          <p>Tabăra specificată nu a fost găsită.</p>
         <?php endif; ?>
-    </main>
+      </div>
+    </div>
+  </main>
 
-    <footer class="footer">
-        <!-- ... (conținutul footer-ului) ... -->
-    </footer>
+  <?php include(ROOT.'../app/views/partials/footer.php'); ?>
 </div>
-</body>
-</html>

@@ -69,4 +69,10 @@ tabere_app/
 
 ## De implementat
 
+
+## Tabele de Audit
+
+## Export date din aplicatie sub format PDF
+
+## Optimizari SEO
 -Tokenuri formulare

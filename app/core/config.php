@@ -1,8 +1,5 @@
 <?php 
 
-require_once __DIR__ . '/../../vendor/autoload.php';
-
-
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..'); 
 $dotenv->load();
 
@@ -18,6 +15,4 @@ define('ROOT', $_ENV['APP_ROOT']);
 define('APP_NAME', "tabere_app");
 define('APP_DESC', "O aplicație pentru organizarea taberelor");
 define('DEBUG', $_ENV['APP_DEBUG']); // true - afișează erorile, false - le ascunde
-//haha
-//hihih
 

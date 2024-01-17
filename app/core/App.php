@@ -23,7 +23,7 @@ class App
 				'About' => ['index'],
 				'Logout' => ['index'],
 				'_404' => ['index']
-			],
+			],      
 			'volunteer' => [
 				//'Dashboard' => ['index'],
 				'Event' => ['index', 'view'],

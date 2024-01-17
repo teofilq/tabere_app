@@ -1,61 +1,80 @@
-<!doctype html>
-<html lang="en" class="h-100">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard Admin - Tabere_App</title>
-    <link href="<?=ROOT?>/css/style.css" rel="stylesheet">
-    <script src="<?=ROOT?>/js/auth-check.js"></script>
-</head>
-<body>
-<div class="cover-container">
-    <header class="header">
-        <h1>Dashboard Admin - Tabere</h1>
-        <nav class="nav-masthead">
-            <a class="nav-link" href="<?=ROOT?>/dashboard/">Tabere</a>
-            <a class="nav-link active" aria-current="page" href="<?=ROOT?>/dashboard/verifyvolunteer">Cereri voluntari</a>
-            <a class="nav-link" href="<?=ROOT?>/logout">Logout</a>
-        </nav>
-    </header>
+<?php
+$page_title = 'tabere_app - Dashboard Admin'; 
+include(ROOT.'../app/views/partials/header.php'); 
+?>
 
-    <main class="main">
-        <section class="admin-intro">
-            <h2>Grijă la intruși, <?=$username?>!</h2>
-            <p>Aici ai toate cererile de voluntariat</p>
-        </section>
-        <section class="camp-list">
-            <h3>Cereri Voluntari</h3>
-            <?php 
-            
-            foreach ($volunteers as $volunteer): ?>
-                <div class="camp-card">
-                    <h4>Nume: <?= htmlspecialchars($volunteer->last_name); ?> <?= htmlspecialchars($volunteer->first_name); ?></h4>
-                    <p>Email: <?= htmlspecialchars($volunteer->email); ?></p>
-                    <p>Număr de Telefon: <?= htmlspecialchars($volunteer->phone);?></p>
-                    <p>Data nașterii: <?= htmlspecialchars($volunteer->birth_date);?></p>
-                    <h4>CV voluntar</h4>
-                    <p>Experință: <?= htmlspecialchars($volunteer->experience); ?></p>
-                    <p>Motivația: <?= htmlspecialchars($volunteer->motivation); ?></p>
-                    <p>Educație: <?= htmlspecialchars($volunteer->motivation); ?></p>
-                    <p>Probleme medicale: <?= htmlspecialchars($volunteer->medical_issues ?? '-'); ?></p>
-                    <p>Limbi străine: <?= htmlspecialchars($volunteer->languages_spoken ?? '-'); ?></p>
+<header data-bs-theme="dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="<?=ROOT?>/home">tabere_app</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="<?=ROOT?>/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href=href="<?=ROOT?>/dashboard/">Tabere</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="<?=ROOT?>/dashboard/verifyvolunteer">Cereri Voluntari</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Cereri Tabere</a>
+          </li>
+        </ul>
+          <div class="text-end">
+        <button type="button" class="btn btn-secondary" onclick="location.href='<?=ROOT?>/logout'">Logout</button>
+      </div>
+      </div>
+    </div>
+  </nav>
+</header>
 
-                    <p>CV trimis la data: <?= htmlspecialchars($volunteer->requested_at); ?></p>
-                    <div class="actions">
-                        <a href="<?=ROOT?>/dashboard/downloadcv/<?= $volunteer->volunteer_profile_id; ?>" class="btn">Descarcă CV</a>
-                        <a href="<?=ROOT?>/dashboard/acceptvolunteer/<?= $volunteer->volunteer_profile_id; ?>" class="btn" onclick="return confirm('Accepți voluntarul?');">Acceptă</a>
-                        <a href="<?=ROOT?>/dashboard/refuse/<?= $volunteer->volunteer_profile_id; ?>" class="btn" onclick="return confirm('Respingi voluntarul?');">Respinge</a>
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Grijă la intruși, <?=$username?>!</h1>
+        <p class="lead text-body-secondary">Aici ai toate cererile de voluntariat</p>
+      </div>
+    </div>
+  </section>
 
-                    </div>
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+        <?php foreach ($volunteers as $volunteer): ?>
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title">Nume: <?= htmlspecialchars($volunteer->last_name); ?> <?= htmlspecialchars($volunteer->first_name); ?></h4>
+                <p class="card-text">Email: <?= htmlspecialchars($volunteer->email); ?></p>
+                <!-- Restul detaliilor voluntarului și acțiuni -->
+                <p class="card-text">Număr de Telefon: <?= htmlspecialchars($volunteer->phone); ?></p>
+                <p class="card-text">Data nașterii: <?= htmlspecialchars($volunteer->birth_date); ?></p>
+                <p class="card-text">Experință: <?= htmlspecialchars($volunteer->experience); ?></p>
+                <p class="card-text">Motivația: <?= htmlspecialchars($volunteer->motivation); ?></p>
+                <p class="card-text">Educație: <?= htmlspecialchars($volunteer->education); ?></p>
+                <p class="card-text">Probleme medicale: <?= htmlspecialchars($volunteer->medical_issues ?? '-'); ?></p>
+                <p class="card-text">Limbi străine: <?= htmlspecialchars($volunteer->languages_spoken ?? '-'); ?></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div  class="btn-group">
+                    <a href="<?=ROOT?>/dashboard/downloadcv/<?= $volunteer->user_id; ?>" class="btn btn-sm btn-outline-secondary">Descarcă CV</a>
+                    <a href="<?=ROOT?>/dashboard/acceptvolunteer/<?= $volunteer->user_id; ?>" class="btn btn-sm btn-outline-success" onclick="return confirm('Accepți voluntarul?');">Acceptă</a>
+                    <a href="<?=ROOT?>/dashboard/refuse/<?= $volunteer->user_id; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Respingi voluntarul?');">Respinge</a>
+                  </div>
+                  <small class="text-body-secondary"><?= htmlspecialchars($volunteer->requested_at); ?></small>
                 </div>
-            <?php endforeach; ?>
-        </section>
-    </main>
+              </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
+</main>
 
-    <footer class="footer">
-        <!-- ... (conținutul footer-ului, poți adăuga un mesaj pentru admini) ... -->
-        <p>© 2024 Tabere_App. Toate drepturile rezervate pentru admini.</p>
-    </footer>
-</div>
-</body>
-</html>
+<?php include(ROOT.'../app/views/partials/footer.php'); ?>

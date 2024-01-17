@@ -25,6 +25,7 @@ class User
         'created_at',
         'image_path',
         'additional_info',
+        'token'
     ];
 
     public function validate($data)

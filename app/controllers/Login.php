@@ -17,7 +17,6 @@ class Login
 			$arr['email'] = $_POST['email'];
 
 			$row = $user->first($arr);
-			
 			if($row)
 			{
 				// Verifică dacă hash-ul parolei din baza de date corespunde cu parola introdusă
