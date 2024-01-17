@@ -22,6 +22,7 @@ class Login
 				// Verifică dacă hash-ul parolei din baza de date corespunde cu parola introdusă
 				if(password_verify($_POST['password'], $row->password))
 				{
+					// prevent session fixation attack
 					session_regenerate_id(true);
 					// Parola este corectă
 					$_SESSION['USER'] = $row;

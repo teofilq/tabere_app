@@ -8,6 +8,8 @@ class Home
 	use Controller;
 
 	public function test(){
+		sendEmail('teosimiras@gmail.com', 'Subiect Test', '<b>Acesta este un e-mail de test!</b>');
+
 		$this->view('test');
 	}
     
