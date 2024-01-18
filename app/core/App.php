@@ -43,6 +43,7 @@ class App
 			],
 			'guest' => [
 				'Home' => ['index'],
+				'User' => ['index','show'],
 				'About' => ['index'],
 				'Login' => ['index'],
 				'Signup' => ['index'],

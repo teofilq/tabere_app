@@ -50,11 +50,9 @@ class User {
         
         // Căutați utilizatorul în baza de date folosind adresa de e-mail
         $user = $this->userModel->first(['email' => $email]);
-        show($user);
-        show($token);
         // Verificați dacă tokenul de verificare se potrivește cu cel stocat în baza de date
         if ($user->token == $token) {
-            echo "Tokenul se potrivește";
+
             // Dacă tokenul se potrivește, setați utilizatorul ca verificat și salvați în baza de date
             $this->userModel->update($user->user_id, ['email_verified' => true], 'user_id');
     
