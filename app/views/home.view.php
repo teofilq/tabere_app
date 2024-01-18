@@ -47,7 +47,7 @@ include(__DIR__.'/partials/navbar.php');
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>Provocarile actuale<?=__DIR__?></h1>
+            <h1>Provocarile actuale</h1>
             <p> Prin taberele și programele noastre, ne dedicăm să îi aducem pe tineri și pe copii mai aproape de natura, încurajându-i să descopere frumusețea, misterul și lecțiile valoroase. Într-o epocă dominată de ecrane digitale, există o generație de copii care riscă să piardă joaca și să se piardă în jocul vieții.</p>
             <!-- <p><a class="btn btn-lg btn-primary" href="#featurette-divider">Vezi Tabere</a></p> -->
           </div>

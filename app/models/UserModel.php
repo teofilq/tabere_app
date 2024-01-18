@@ -2,7 +2,7 @@
 /**
  * User class
  */
-class User
+class UserModel
 {
     use Model;
     protected $table = 'users';

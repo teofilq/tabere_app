@@ -13,7 +13,7 @@ class Login
 		
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
-			$user = new User;
+			$user = new UserModel;
 			$arr['email'] = $_POST['email'];
 
 			$row = $user->first($arr);
