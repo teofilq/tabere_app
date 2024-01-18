@@ -14,13 +14,12 @@ function sendEmail($destinatar, $subiect, $corp) {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = GMAIL_USERNAME;
-        $mail->Password   = GMAIL_PASSWORD;
-		
+        $mail->Password   = GMAIL_PASSWORD;	
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
         // Destinatari
-        $mail->setFrom(GMAIL_USERNAME, 'Nume Expeditor');
+        $mail->setFrom(GMAIL_USERNAME, 'tabere_app');
         $mail->addAddress($destinatar); // Adăugați destinatarul
 
         // Conținut
@@ -33,6 +32,48 @@ function sendEmail($destinatar, $subiect, $corp) {
     } catch (Exception $e) {
         echo "Mesajul nu a putut fi trimis. Mailer Error: {$mail->ErrorInfo}";
     }
+}
+
+function sendVerifyEmail($email, $user_name, $token) {
+    $subiect = "Verificare Email";
+    $app_url = APP_URL;
+    $corp = "
+        <html>
+        <head>
+            <title>{$subiect}</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    color: #333;
+                }
+                .container {
+                    width: 80%;
+                    margin: 0 auto;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    background-color: #f8f8f8;
+                }
+                a {
+                    color: #3498db;
+                    text-decoration: none;
+                }
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <h2>Bună, {$user_name}!</h2>
+                <p>Ne bucurăm să te-ai înregistrat pe aplicația noastră. Te rugăm să verifici adresa de e-mail apasând pe linkul de mai jos:</p>
+                <p><a href='https://{$app_url}/verify/{$email}/{$token}'>Verifică Email</a></p>
+                <p>Dacă nu v-ați înregistrat pe site-ul nostru, vă rugăm să ignorați acest e-mail.</p>
+                <p>O zi bună,</p>
+                <p>tabere_app</p>
+            </div>
+        </body>
+        </html>
+    ";
+
+    sendEmail($email, $subiect, $corp);
 }
 
 function show($stuff)

@@ -58,6 +58,7 @@ include(__DIR__.'/../partials/header.php');
 </div>
 </div>
 </main>
-  <?php include(__DIR__.'/../partials/footer.php'); ?>
 </div>
+  <?php include(__DIR__.'/../partials/footer.php'); ?>
+
 

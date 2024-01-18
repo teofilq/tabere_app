@@ -5,7 +5,6 @@
 class User
 {
     use Model;
-
     protected $table = 'users';
 	public function __construct() {
         $this->order_column = 'user_id';  // Setează $order_column la 'user_id'
@@ -99,4 +98,3 @@ class User
     }
 
 }
-

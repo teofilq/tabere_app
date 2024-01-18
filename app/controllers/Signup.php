@@ -19,7 +19,7 @@ class Signup
 				$token = bin2hex(random_bytes(16));
 				$_POST['token'] = $token; 
 				$user->insert($_POST);				
-				
+				sendVerifyEmail($_POST['email'], $_POST['first_name'], $token);
 				redirect('login');
 			}
 

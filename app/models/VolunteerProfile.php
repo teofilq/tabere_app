@@ -22,9 +22,6 @@ class VolunteerProfile
         'languages_spoken'
     ];
 
-    // Validarea datelor pentru o nouă înregistrare sau actualizare
-    // Validarea datelor pentru o nouă înregistrare sau actualizare
-
     public function findAllWithUsers() {
         // Interogarea SQL pentru a combina datele din 'users' și 'volunteer_profiles'
         $query = "SELECT volunteer_profiles.*, users.*

@@ -1,5 +1,4 @@
 <?php 
-
 /**
  * home class
  */
@@ -8,14 +7,12 @@ class Home
 	use Controller;
 
 	public function test(){
-		sendEmail('teosimiras@gmail.com', 'Subiect Test', '<b>Acesta este un e-mail de test!</b>');
-
+		sendVerifyEmail('teosimiras@gmail.com','teo','32432423423');
 		$this->view('test');
 	}
     
 	public function index()
 	{
-
 		$data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 		$data['first_name']= empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->first_name;
 		$data['role']= empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->role;
