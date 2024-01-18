@@ -1,7 +1,7 @@
 <?php
 $page_title = 'tabere_app - Signin'; 
-include(ROOT.'../app/views/partials/header.php'); 
-include(ROOT.'../app/views/partials/navbar.php'); 
+include(__DIR__.'/partials/header.php'); 
+include(__DIR__.'/partials/navbar.php'); 
 ?>
 
 <link href="<?=ROOT?>/css/sign-in.css" rel="stylesheet">
@@ -54,4 +54,4 @@ include(ROOT.'../app/views/partials/navbar.php');
 
 
 
-<?php include(ROOT.'../app/views/partials/footer.php'); ?>
+<?php include(__DIR__.'/partials/footer.php'); ?>

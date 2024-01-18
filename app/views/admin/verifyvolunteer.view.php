@@ -1,6 +1,6 @@
 <?php
 $page_title = 'tabere_app - Dashboard Admin'; 
-include(ROOT.'../app/views/partials/header.php'); 
+include(__DIR__.'/../partials/header.php'); 
 ?>
 
 <header data-bs-theme="dark">
@@ -77,4 +77,4 @@ include(ROOT.'../app/views/partials/header.php');
   </div>
 </main>
 
-<?php include(ROOT.'../app/views/partials/footer.php'); ?>
+<?php include(__DIR__.'/../partials/footer.php'); ?>

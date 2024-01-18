@@ -1,6 +1,6 @@
 <?php
 $page_title = 'tabere_app - Adăugare Tabără'; 
-include(ROOT.'../app/views/partials/header.php'); 
+include(__DIR__.'/../partials/header.php'); 
 ?>
 
 <div class="container">
@@ -58,6 +58,6 @@ include(ROOT.'../app/views/partials/header.php');
 </div>
 </div>
 </main>
-  <?php include(ROOT.'../app/views/partials/footer.php'); ?>
+  <?php include(__DIR__.'/../partials/footer.php'); ?>
 </div>
 
