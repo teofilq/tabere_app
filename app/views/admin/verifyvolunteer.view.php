@@ -46,6 +46,11 @@ include(__DIR__.'/../partials/header.php');
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
       <div class="row row-cols-1 row-cols-md-2 g-3">
+      <?php if (empty($volunteers)): ?>
+        <div class="col">
+          <p>Încă nu ai cereri. E o zi liberă!</p>
+        </div>
+      <?php else: ?>
         <?php foreach ($volunteers as $volunteer): ?>
           <div class="col">
             <div class="card shadow-sm">
@@ -72,6 +77,7 @@ include(__DIR__.'/../partials/header.php');
             </div>
           </div>
         <?php endforeach; ?>
+        <?php endif; ?>
       </div>
     </div>
   </div>

@@ -64,8 +64,8 @@ function sendVerifyEmail($email, $user_name, $token) {
     <body>
         <div class="container">
             <h2>Bună, '.$user_name.'!</h2>
-            <p>Ne bucurăm să te-ai înregistrat pe aplicația noastră. Te rugăm să verifici adresa de e-mail apasând pe linkul de mai jos:</p>
-            <p><a href="https://'.$app_url.'/user/verify/'.$email.'/'.$token.'">Verifică Email</a></p>
+            <p>Ne bucurăm că te-ai înregistrat pe aplicația noastră. Te rugăm să verifici adresa de e-mail apasând pe linkul de mai jos:</p>
+            <p><a href="https://'.$app_url.'/user/verify/'.$email.'/'.$token.'">Verifică Emailul</a></p>
             <p>Dacă nu v-ați înregistrat pe site-ul nostru, vă rugăm să ignorați acest e-mail.</p>
             <p>O zi bună,</p>
             <p>tabere_app</p>

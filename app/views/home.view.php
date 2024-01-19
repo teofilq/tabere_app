@@ -76,19 +76,19 @@ include(__DIR__.'/partials/navbar.php');
       <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="<?=ROOT?>/images/inscriere.png" role="img" aria-label="Placeholder">
       <h2 class="fw-normal">Participanți</h2>
       <p>Descoperă tabere și aventurile pe care le pregătim și cum poți participa.</p>
-      <p><a class="btn btn-secondary" href="<?=ROOT?>/home/learnmore">View details &raquo;</a></p>
+      <p><a class="btn btn-secondary" href="<?=ROOT?>/home/participanti">View details &raquo;</a></p>
     </div> 
     <div class="col-lg-4">
       <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="<?=ROOT?>/images/voluntari.png" role="img" aria-label="Placeholder">
       <h2 class="fw-normal">Voluntari</h2>
       <p>Află mai multe despre voluntarii noștrii și pregătirea lor.</p>
-      <p><a class="btn btn-secondary" href="<?=ROOT?>/home/learnmore">View details &raquo;</a></p>
+      <p><a class="btn btn-secondary" href="<?=ROOT?>/home/voluntari">View details &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4">
       <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="<?=ROOT?>/images/org.png" role="img" aria-label="Placeholder">
       <h2 class="fw-normal">Organizatori</h2>
       <p>Fă cunoștință cu organizatorii și modul de planificare al taberelor.</p>
-      <p><a class="btn btn-secondary" href="<?=ROOT?>/home/learnmore">View details &raquo;</a></p>
+      <p><a class="btn btn-secondary" href="<?=ROOT?>/home/organizatori">View details &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
 
     <!-- /.col-lg-4 -->

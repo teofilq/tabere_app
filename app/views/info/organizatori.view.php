@@ -5,8 +5,8 @@ include(__DIR__.'/../partials/header.php');
  
  <main class="container">
   <div class="bg-body-tertiary p-5 rounded">
-    <h1></h1>
-    <p class="lead">Adresa de email a fost verificată</p>
+    <h1>Pagina organizatorilor</h1>
+    <p class="lead">Conținutul pagina.</p>
     <a class="btn btn-lg btn-primary" href="<?=ROOT?>/home" role="button">Spre Home &raquo;</a>
   </div>
 </main>

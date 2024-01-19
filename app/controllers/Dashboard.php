@@ -8,7 +8,7 @@ class Dashboard {
     private $volunteerModel;
     public function __construct() {
         $this->campModel = new Camp();
-        $this->userModel = new User();
+        $this->userModel = new UserModel();
         $this->volunteerModel = new VolunteerProfile();
     }
 

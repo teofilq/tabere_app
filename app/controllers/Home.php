@@ -7,10 +7,17 @@ class Home
 	use Controller;
 
 	public function test(){
-		sendVerifyEmail('teosimiras@gmail.com','teo','32432423423');
-		$this->view('test');
+		//$this->view('test');
 	}
-    
+	public function participanti(){
+		$this->view('info/participanti');
+	}
+	public function voluntari(){
+		$this->view('info/voluntari');
+	}
+	public function organizatori(){
+		$this->view('info/organizatori');
+	}
 	public function index()
 	{
 		
