@@ -48,7 +48,7 @@ include(__DIR__.'/partials/navbar.php');
         <div class="container">
           <div class="carousel-caption text-end">
             <h1>Provocarile actuale</h1>
-            <p> Prin taberele și programele noastre, ne dedicăm să îi aducem pe tineri și pe copii mai aproape de natura, încurajându-i să descopere frumusețea, misterul și lecțiile valoroase. Într-o epocă dominată de ecrane digitale, există o generație de copii care riscă să piardă joaca și să se piardă în jocul vieții.</p>
+            <p> Prin taberele și programele noastre, ne dedicăm să îi aducem pe tineri și pe copii mai aproape de natura, încurajându-i să descopere frumusețea, misterul și lecțiile valoroase.</p>
             <!-- <p><a class="btn btn-lg btn-primary" href="#featurette-divider">Vezi Tabere</a></p> -->
           </div>
         </div>

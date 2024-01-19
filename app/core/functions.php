@@ -20,7 +20,7 @@ function sendEmail($destinatar, $subiect, $corp) {
 
         // Destinatari
         $mail->setFrom(GMAIL_USERNAME, 'tabere_app');
-        $mail->addAddress($destinatar); // Adăugați destinatarul
+        $mail->addAddress($destinatar); 
 
         // Conținut
         $mail->isHTML(true);
