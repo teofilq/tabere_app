@@ -2,7 +2,7 @@
 
 ## Descriere
 
-Această aplicație web este destinată facilitării organizării de tabere prin intermediul unei platforme intuitive și accesibile. Ea permite utilizatorilor să aplice pentru a deveni voluntari și oferă organizatorilor instrumentele necesare pentru a gestiona eficient aceste aplicații, precum și pentru a crea și administra tabere. O poți folosi aici: https://tabere.go.ro
+Această aplicație web este destinată facilitării organizării de tabere prin intermediul unei platforme intuitive și accesibile. Ea permite utilizatorilor să aplice pentru a deveni voluntari și oferă organizatorilor instrumentele necesare pentru a gestiona eficient aceste aplicații, precum și pentru a crea și administra tabere.
 
 ## Cum Funcționează
 
